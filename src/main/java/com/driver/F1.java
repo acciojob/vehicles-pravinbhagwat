@@ -8,14 +8,6 @@ public class F1 extends Car {
     }
 
 
-    public F1(String name, int wheels, int doors, int gears, boolean isManual, String type, int seats) {
-        super(name, wheels, doors, gears, isManual, type, seats);
-    }
-
-    public F1(String name) {
-        super(name);
-    }
-
     @Override
     public String getName() {
         return super.getName();
