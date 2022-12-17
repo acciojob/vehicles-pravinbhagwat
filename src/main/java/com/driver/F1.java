@@ -7,9 +7,48 @@ public class F1 extends Car {
         super(name, 4, 2, 5, isManual, "F1", 2);
     }
 
+
+    public F1(String name, int wheels, int doors, int gears, boolean isManual, String type, int seats) {
+        super(name, wheels, doors, gears, isManual, type, seats);
+    }
+
+    public F1(String name) {
+        super(name);
+    }
+
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
+    @Override
+    public void setName(String name) {
+        super.setName(name);
+    }
+
+    @Override
+    public int getCurrentSpeed() {
+        return super.getCurrentSpeed();
+    }
+
     @Override
     public void setCurrentSpeed(int currentSpeed) {
         super.setCurrentSpeed(currentSpeed);
+    }
+
+    @Override
+    public int getCurrentDirection() {
+        return super.getCurrentDirection();
+    }
+
+    @Override
+    public void setCurrentDirection(int currentDirection) {
+        super.setCurrentDirection(currentDirection);
+    }
+
+    @Override
+    public void steer(int direction) {
+        super.steer(direction);
     }
 
     @Override
@@ -20,6 +59,21 @@ public class F1 extends Car {
     @Override
     public void move(int speed, int direction) {
         super.move(speed, direction);
+    }
+
+    @Override
+    public void stop() {
+        super.stop();
+    }
+
+    @Override
+    public void changeGear(int newGear) {
+        super.changeGear(newGear);
+    }
+
+    @Override
+    public void changeSpeed(int newSpeed, int newDirection) {
+        super.changeSpeed(newSpeed, newDirection);
     }
 
     public void accelerate(int rate){
@@ -34,12 +88,12 @@ public class F1 extends Car {
          * speed more than 250: gear 6
          */
 
-        setCurrentSpeed(rate);
-        newSpeed = getCurrentSpeed();
+        newSpeed = getCurrentSpeed() + rate;
 
         if(newSpeed == 0) {
             //Stop the car, set gear as 1
             setCurrentGear(1);
+            stop();
         } else if (newSpeed > 0 && newSpeed <=50) {
             setCurrentGear(1);
         } else if (newSpeed > 50 && newSpeed <=100) {
@@ -58,5 +112,7 @@ public class F1 extends Car {
         if(newSpeed > 0) {
             changeSpeed(newSpeed, getCurrentDirection());
         }
+
+
     }
 }

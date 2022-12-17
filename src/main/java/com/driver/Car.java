@@ -1,6 +1,6 @@
 package com.driver;
 
-public class Car extends Vehicle {
+public abstract class Car extends Vehicle {
     private int wheels;
     private String type;
     private int doors;
@@ -21,8 +21,23 @@ public class Car extends Vehicle {
         this.currentGear = 1;
     }
 
-    public void setCurrentGear(int currentGear) {
-        this.currentGear = currentGear;
+    public Car(String name) {
+        super(name);
+    }
+
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
+    @Override
+    public void setName(String name) {
+        super.setName(name);
+    }
+
+    @Override
+    public int getCurrentSpeed() {
+        return super.getCurrentSpeed();
     }
 
     @Override
@@ -31,8 +46,18 @@ public class Car extends Vehicle {
     }
 
     @Override
+    public int getCurrentDirection() {
+        return super.getCurrentDirection();
+    }
+
+    @Override
     public void setCurrentDirection(int currentDirection) {
         super.setCurrentDirection(currentDirection);
+    }
+
+    @Override
+    public void steer(int direction) {
+        super.steer(direction);
     }
 
     @Override
@@ -40,17 +65,18 @@ public class Car extends Vehicle {
         super.move(speed, direction);
     }
 
-    public boolean isManual() {
-        return isManual;
-    }
-
-    public void setManual(boolean manual) {
-        setManual(manual);
+    @Override
+    public void stop() {
+        super.stop();
     }
 
     public void changeGear(int newGear){
         setCurrentGear(newGear);
         System.out.println("changeGear method called - The gear is changed to: " + currentGear);
+    }
+
+    public void setCurrentGear(int newGear) {
+        this.currentGear = newGear;
     }
 
     public void changeSpeed(int newSpeed, int newDirection){
