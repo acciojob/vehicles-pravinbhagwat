@@ -12,75 +12,78 @@ public class Car extends Vehicle {
     public Car(String name, int wheels, int doors, int gears, boolean isManual, String type, int seats) {
         //Hint: Car extends Vehicle
         super(name);
-        this.wheels =  wheels;
+        this.currentGear = 1;
+        this.wheels = wheels;
         this.doors = doors;
         this.gears = gears;
         this.isManual = isManual;
         this.type = type;
         this.seats = seats;
-        this.currentGear = 1;
-    }
-
-    public Car(String name) {
-        super(name);
-    }
-
-    @Override
-    public String getName() {
-        return super.getName();
-    }
-
-    @Override
-    public void setName(String name) {
-        super.setName(name);
-    }
-
-    @Override
-    public int getCurrentSpeed() {
-        return super.getCurrentSpeed();
-    }
-
-    @Override
-    public void setCurrentSpeed(int currentSpeed) {
-        super.setCurrentSpeed(currentSpeed);
-    }
-
-    @Override
-    public int getCurrentDirection() {
-        return super.getCurrentDirection();
-    }
-
-    @Override
-    public void setCurrentDirection(int currentDirection) {
-        super.setCurrentDirection(currentDirection);
-    }
-
-    @Override
-    public void steer(int direction) {
-        super.steer(direction);
-    }
-
-    @Override
-    public void move(int speed, int direction) {
-        super.move(speed, direction);
-    }
-
-    @Override
-    public void stop() {
-        super.stop();
     }
 
     public void changeGear(int newGear){
-        setCurrentGear(newGear);
+        this.currentGear = newGear;
         System.out.println("changeGear method called - The gear is changed to: " + currentGear);
     }
 
-    public void setCurrentGear(int newGear) {
-        this.currentGear = newGear;
+    public void changeSpeed(int newSpeed, int newDirection){
+        move(newSpeed,newDirection);
+        System.out.println("changeSpeed method called - The speed is changed to: " + newSpeed + ", and the direction is changed to: " + newDirection + " degrees");
     }
 
-    public void changeSpeed(int newSpeed, int newDirection){
-        move(newSpeed, newDirection);
-        System.out.println("changeSpeed method called - The speed is changed to: " + newSpeed + ", and the direction is changed to: " + newDirection + " degrees");
+    public int getWheels() {
+        return wheels;
+    }
+
+    public void setWheels(int wheels) {
+        this.wheels = wheels;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getDoors() {
+        return doors;
+    }
+
+    public void setDoors(int doors) {
+        this.doors = doors;
+    }
+
+    public int getGears() {
+        return gears;
+    }
+
+    public void setGears(int gears) {
+        this.gears = gears;
+    }
+
+    public boolean isManual() {
+        return isManual;
+    }
+
+    public void setManual(boolean manual) {
+        isManual = manual;
+    }
+
+    public int getCurrentGear() {
+        return currentGear;
+    }
+
+    public void setCurrentGear(int currentGear) {
+        this.currentGear = currentGear;
+    }
+
+    public int getSeats() {
+        return seats;
+    }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
     }
 }
